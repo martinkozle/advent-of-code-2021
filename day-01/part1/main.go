@@ -19,10 +19,14 @@ func toInt(s string) int {
 	return i
 }
 
-func main() {
-	data, err := os.ReadFile("input.txt")
+func readLines(file string) []string {
+	data, err := os.ReadFile(file)
 	check(err)
-	lines := strings.Split(strings.TrimSpace(string(data)), "\n")
+	return strings.Split(strings.TrimSpace(string(data)), "\n")
+}
+
+func main() {
+	lines := readLines("input.txt")
 	count := 0
 	for i := 1; i < len(lines); i++ {
 		depth1 := toInt(lines[i-1])

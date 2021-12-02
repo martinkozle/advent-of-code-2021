@@ -27,21 +27,5 @@ func readLines(file string) []string {
 
 func main() {
 	lines := readLines("input.txt")
-	distance := 0
-	aim := 0
-	depth := 0
-	for _, line := range lines {
-		parts := strings.Split(line, " ")
-		direction := parts[0]
-		amount := toInt(parts[1])
-		if direction == "forward" {
-			distance += amount
-			depth += aim * amount
-		} else if direction == "down" {
-			aim += amount
-		} else if direction == "up" {
-			aim -= amount
-		}
-	}
-	fmt.Println(distance * depth)
+	fmt.Println(lines)
 }

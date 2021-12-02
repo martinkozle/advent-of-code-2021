@@ -19,15 +19,16 @@ func toInt(s string) int {
 	return i
 }
 
-func main() {
-	data, err := os.ReadFile("input.txt")
+func readLines(file string) []string {
+	data, err := os.ReadFile(file)
 	check(err)
-	lines := strings.Split(strings.TrimSpace(string(data)), "\n")
+	return strings.Split(strings.TrimSpace(string(data)), "\n")
+}
+
+func main() {
+	lines := readLines("input.txt")
 	depthSums := []int{}
 	for i := 2; i < len(lines); i++ {
-		if lines[i] == "" {
-			continue
-		}
 		depth1 := toInt(lines[i-2])
 		depth2 := toInt(lines[i-1])
 		depth3 := toInt(lines[i])
